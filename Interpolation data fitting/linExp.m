@@ -1,6 +1,6 @@
 function [] = linExp(data, guessed_lambdas)
 %{
-Our Matlab-function fits a linear combination of exponential functions 
+linExp(data,guessed_lambdas) fits a linear combination of exponential functions 
 to the given data. The idea is that the function linExp(data, guessed_lambdas) 
 is going to fit a line on the data given by creating what was described in 
 the sentence before. The function itself is found by using initial guessed 
@@ -20,7 +20,7 @@ column2 = data(:, 2);
 % minimise residue with A = matrix of exponentials and C = A/Column2.
 least_squares_f = @(lambda_values) norm(exp(column1*lambda_values) * (exp(column1*lambda_values)\column2) - column2);
 
-% With our guessed lambdas from the input, we here find optimal lambdas
+% With the guessed lambdas from the input, we here find optimal lambdas
 % using the finction fminsearch() with a minimum residue
 optimal_lambdas = fminsearch(least_squares_f, guessed_lambdas);
 
